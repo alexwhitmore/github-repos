@@ -10,13 +10,6 @@ Send request & Parse returned data into JSON
 I can then view the entire API response
 */
 
-// const nameContainer = document.querySelector('collapse');
-// const searchButton = document.querySelector('.button');
-
-// searchButton.addEventListener('click', () => {
-//   let username = requestUserRepos(username);
-// });
-
 function requestUserRepos(username) {
   //create new XMLHttpsRequest
   const xhr = new XMLHttpRequest();
@@ -28,8 +21,7 @@ function requestUserRepos(username) {
   //Providing 3 arguments (GET/POST, the URL, Async True/False)
   xhr.open('GET', url, true);
 
-  //When request is recieved
-  //Process is here
+
   xhr.onload = function () {
     //Parse API data into JSON
     const data = JSON.parse(this.response);
@@ -39,17 +31,7 @@ function requestUserRepos(username) {
 
     //Loop over each object in data array
     for (let i in data) {
-      //log the repo name
-      //console.log('Repo:', data[i].name);
 
-      //log the repo description
-      //console.log('Description:', data[i].description);
-
-      //log the repo url
-      //console.log('URL:', data[i].html_url);
-
-      //add a separator between each repo
-      //console.log('==========================');
       document.getElementById('dem').innerHTML = `
         Repo: ${data[i].name}
         Description: ${data[i].description}
